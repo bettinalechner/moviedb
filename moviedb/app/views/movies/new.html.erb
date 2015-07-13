@@ -1,22 +1,24 @@
-<h1>Add a new Movie</h1>
+<div class="panel-heading">
+    <h1 class="panel-title">Add a new Movie</h1>
+</div>
+<div class="panel-body">
 <%= form_for @movie do |f| %>
-    <p>
+    <div class="form-group">
         <%= f.label :title %>
-        <%= f.text_field :title %>
-    </p>
-    <p>
+        <%= f.text_field :title, :class => 'form-control' %>
+    </div>
+    <div class="form-group">
         <%= f.label :year %>
-        <%= f.text_field :year %>
-    </p>
-    <p>
+        <%= f.text_field :year, :class => 'form-control' %>
+    </div>
+    <div class="form-group">
         <%= f.label :rating %>
-        <%= f.text_field :rating %>
-    </p>
-    <p>
+        <%= f.text_field :rating, :class => 'form-control' %>
+    </div>
+    <div class="form-group">
         <%= f.label :description %>
-        <%= f.text_area :description %>
-    </p>
-    <p>
-        <%= f.submit %>
-    </p>
+        <%= f.text_area :description, :class => 'form-control' %>
+    </div>
+    <%= f.submit nil, :class => 'btn btn-primary' %>
 <% end %>
+</div>
