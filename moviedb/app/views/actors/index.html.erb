@@ -1,0 +1,23 @@
+<div class="panel-heading">
+    <h1 class="panel-title">Actors</h1>
+</div>
+<div class="panel-body">
+    <table class="table">
+        <tr>
+            <th>Name</th>
+            <th>Nationality</th>
+            <th></th>
+            <th></th>
+        </tr>
+        <% @actors.each do |actor| %>
+            <tr>
+                <td><%= link_to actor.name, actor %></td>
+                <td><%= link_to actor.nationality, actor %></td>
+                <td><%= link_to 'Edit', edit_actor_path(actor) %></td>
+                <td>
+                    <%= link_to 'Delete', actor_path(actor), method: :delete, data: { confirm: "Are you sure you want to delete #{actor.name}?" } %>
+                </td>
+            </tr>
+        <% end %>
+    </table>
+</div>
