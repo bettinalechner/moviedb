@@ -3,7 +3,11 @@ Rails.application.routes.draw do
   
   get 'welcome' => 'welcome#index'
   
-  resources :movies
+  resources :movies do
+    resources :roles
+  end
   
-  resources :actors
+  resources :actors do
+    resources :roles
+  end
 end
