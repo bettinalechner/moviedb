@@ -3,6 +3,18 @@
 </div>
 <div class="panel-body">
 <%= form_for @movie do |f| %>
+    <% if @movie.errors.any? %>
+        <div class="alert alert-danger">
+            <p>
+                The following <%= 'error'.pluralize(@movie.errors.size) %> prevented this movie from being saved:
+            </p>
+            <ul>
+                <% @movie.errors.full_messages.each do |msg| %>
+                    <li><%= msg %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
     <div class="form-group">
         <%= f.label :title %>
         <%= f.text_field :title, :class => 'form-control' %>
