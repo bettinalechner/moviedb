@@ -10,7 +10,10 @@
     <h2>Cast</h2>
     <ul>
         <% @movie.roles.each do |role| %>
-            <li><%= link_to role.actor.name, role.actor %> as <%= role.name %></li>
+            <li><%= link_to role.actor.name, role.actor %> as <%= role.name %>
+                | <%= link_to 'Edit', edit_movie_role_path(role.movie, role), :class => 'btn btn-sm btn-default' %> 
+                | <%= link_to 'Delete', movie_role_path(role.movie, role), method: :delete, data: { confirm: "Are you sure you want to delete #{role.name}?" }, :class => 'btn btn-sm btn-default' %>
+            </li>
         <% end %>
     </ul>
     

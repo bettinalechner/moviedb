@@ -6,4 +6,13 @@
 <div class="panel-body">
     <p>Nationality: <%= @actor.nationality %></p>
     <p>Date of Birth: <%= @actor.date_of_birth %></p>
+    <h2>Roles</h2>
+    <ul>
+        <% @actor.roles.each do |role| %>
+            <li>
+                <%= role.name %> in <%= link_to role.movie.title, role.movie %>
+            </li>
+        <% end %>
+    </ul>
+    <p><%= link_to 'Add Role', new_actor_role_path(@actor), :class => 'btn btn-primary' %></p>
 </div>

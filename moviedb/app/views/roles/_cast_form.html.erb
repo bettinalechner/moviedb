@@ -1,0 +1,22 @@
+<%= form_for [@actor, @role] do |f| %>
+    <% if @role.errors.any? %>
+        <div class="alert alert-danger">
+            <p>The following <%= 'error'.pluralize(@role.errors.size) %> prevented this role from being saved:</p>
+            <ul>
+                <% @role.errors.full_messages.each do |msg| %>
+                    <li><%= msg %></li>
+                <% end %>
+            </ul>
+        </div>
+    <% end %>
+    <div class="form-group">
+        <%= f.label :name, 'Role Name' %>
+        <%= f.text_field :name, :class => 'form-control' %>
+    </div>
+    <div class="form-group">
+        <%= f.label :movie_id %>
+        <br>
+        <%= f.select :movie_id, Movie.all.collect { |m| [m.title, m.id] }, :class => 'form-control' %>
+    </div>
+    <%= f.submit nil, :class => 'btn btn-primary' %>
+<% end %>
